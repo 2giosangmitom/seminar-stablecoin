@@ -49,9 +49,19 @@ Stablecoin có thể duy trì giá trị ổn định theo nhiều cách khác n
 
 ---
 transition: slide-left
+layout: default
 ---
 
 # USDC
+
+- USDC là stablecoin được bảo chứng hoàn toàn bằng tiền mặt và các tài sản tương đương tiền mặt có tính thanh khoản cao, đảm bảo khả năng quy đổi 1:1 với đô la Mỹ.
+- USDC tận dụng công nghệ blockchain để cho phép chuyển tiền xuyên biên giới nhanh chóng, phí thấp, không phụ thuộc vào hệ thống ngân hàng truyền thống. Giao dịch USDC diễn ra liên tục 24/7, không bị giới hạn bởi giờ làm việc, ngày nghỉ hay biên giới quốc gia.
+- USDC được phát hành và quản lý minh bạch bởi Circle, tuân thủ các tiêu chuẩn pháp lý nghiêm ngặt tại Hoa Kỳ. Dự trữ của USDC được kiểm toán định kỳ bởi các tổ chức độc lập, giúp tăng cường sự tin tưởng cho người dùng.
+- Ưu điểm nổi bật của USDC:
+  - Chuyển tiền nhanh chóng, chi phí thấp trên toàn cầu
+  - Có thể sử dụng ở hơn 180 quốc gia
+  - Giá trị ổn định, dự trữ đầy đủ, minh bạch
+  - Tuân thủ quy định pháp lý, tăng độ an toàn cho người dùng
 
 ---
 transition: slide-down
