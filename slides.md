@@ -5,7 +5,7 @@ background: https://cover.sli.dev
 hideInToc: true
 ---
 
-# Tìm hiểu về stablecoin và USDC
+# Tìm hiểu về stablecoin
 
 ---
 transition: slide-down
