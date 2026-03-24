@@ -102,7 +102,7 @@ layout: default
 
 USDC (USD Coin) là stablecoin loại fiat-backed được thiết kế để duy trì giá trị 1:1 với đô la Mỹ. Nó được phát triển trong khuôn khổ Centre (một consortium do Circle và Coinbase sáng lập) và được phát hành bởi Circle.
 
-### Đặc điểm nổi bật
+## Đặc điểm nổi bật
 
 - **Fully reserved**: Được hỗ trợ 100% bởi tiền mặt và các công cụ thị trường tiền tệ có tính thanh khoản cao
 - **1:1 redeemability**: Mỗi USDC có thể đổi lại chính xác 1 USD
