@@ -8,7 +8,7 @@ hideInToc: true
 # Tìm hiểu về stablecoin và USDC
 
 ---
-transition: slide-left
+transition: slide-down
 layout: intro
 hideInToc: true
 ---
@@ -18,7 +18,7 @@ hideInToc: true
 <Toc />
 
 ---
-transition: slide-up
+transition: slide-down
 ---
 
 # Stablecoin là gì?
@@ -35,6 +35,10 @@ Stablecoin kết hợp độ tin cậy của tiền truyền thống với hiệ
 - Giữ lại những lợi thế của blockchain như giao dịch nhanh, phí thấp và tính minh bạch
 - Hoạt động 24/7/365 mà không phụ thuộc vào giờ làm việc của hệ thống tài chính truyền thống
 
+---
+hideInToc: true
+---
+
 ## Các cơ chế duy trì ổn định
 
 Có nhiều cách để stablecoin duy trì giá trị ổn định:
@@ -46,7 +50,7 @@ Có nhiều cách để stablecoin duy trì giá trị ổn định:
 Mỗi cách tiếp cận có ưu — nhược điểm khác nhau về minh bạch, độ tin cậy và rủi ro.
 
 ---
-transition: slide-left
+transition: slide-down
 ---
 
 # Các loại stablecoin
@@ -67,6 +71,10 @@ transition: slide-left
 - **Ưu điểm**: Thích hợp cho đầu tư, cho phép truy cập hàng hóa qua blockchain
 - **Nhược điểm**: Yêu cầu lưu trữ và kiểm toán vật lý
 
+---
+hideInToc: true
+---
+
 ## 3. Crypto-backed Stablecoins
 
 - **Mô tả**: Thế chấp bằng tiền mã hóa
@@ -84,7 +92,7 @@ transition: slide-left
 - **Nhược điểm**: Rủi ro cơ chế cao, dễ mất niềm tin nếu thị trường biến động mạnh
 
 ---
-transition: slide-left
+transition: slide-down
 layout: default
 ---
 
@@ -102,6 +110,10 @@ USDC (USD Coin) là stablecoin loại fiat-backed được thiết kế để du
 - **Tuân thủ quy định**: Được phát hành bởi các thực thể được cấp phép của Circle
 - **Multi-chain**: Hoạt động trên hơn 30 mạng blockchain khác nhau
 
+---
+hideInToc: true
+---
+
 ## Lịch sử phát triển
 
 - **Tháng 9/2018**: Ra đời lần đầu trên blockchain Ethereum
@@ -110,7 +122,7 @@ USDC (USD Coin) là stablecoin loại fiat-backed được thiết kế để du
 - **Hiện tại**: USDC là một trong những stablecoin được quản lý và sử dụng rộng rãi nhất trên thế giới với tổng vốn lưu hành trên 70 tỷ USD
 
 ---
-transition: slide-right
+transition: slide-down
 ---
 
 # Cơ chế dự trữ và minh bạch của USDC
@@ -122,6 +134,10 @@ Dự trữ hỗ trợ USDC bao gồm:
 - **Tiền mặt**: USD thực
 - **Công cụ thị trường tiền tệ**: Chủ yếu là trái phiếu chính phủ Mỹ ngắn hạn (US Treasuries)
 - **Các công cụ thanh khoản cao**: Overnight repurchase agreements với các ngân hàng hàng đầu thế giới
+
+---
+hideInToc: true
+---
 
 ## Quy trình chứng minh
 
@@ -140,7 +156,7 @@ Circle áp dụng một hệ thống minh bạch đa tầng:
 - Cho phép đổi 1:1 bất kỳ lúc nào
 
 ---
-transition: slide-left
+transition: slide-down
 ---
 
 # Ưu điểm của stablecoin
@@ -159,6 +175,10 @@ transition: slide-left
 - **Không giới hạn địa lý**: Gửi tiền toàn cầu chỉ cần internet
 - **Hoạt động 24/7**: Không phụ thuộc vào ngân hàng
 
+---
+hideInToc: true
+---
+
 ## Tính lập trình (Programmability)
 
 - **Tích hợp smart contract**
@@ -174,7 +194,7 @@ transition: slide-left
 - **Hỗ trợ nền kinh tế mới nổi**
 
 ---
-transition: fade
+transition: slide-down
 ---
 
 # Ứng dụng thực tế của stablecoin
@@ -193,6 +213,10 @@ transition: fade
 - Yield farming
 - Ổn định danh mục đầu tư
 
+---
+hideInToc: true
+---
+
 ## Thanh toán & Thương mại
 
 - Thanh toán trực tuyến
@@ -207,6 +231,10 @@ transition: fade
 - Kế hoạch tài chính ngắn hạn
 - Chuyển giao tài sản
 
+---
+hideInToc: true
+---
+
 ## Micropayments & Kinh tế sáng tạo
 
 - Thanh toán nội dung
@@ -215,10 +243,10 @@ transition: fade
 - Pay-per-use services
 
 ---
-transition: slide-right
+transition: slide-down
 ---
 
-# Tổng kết và khuyến nghị sử dụng
+# Tổng kết
 
 ## Stablecoin là cầu nối
 
@@ -228,32 +256,17 @@ transition: slide-right
 
 ## USDC - Lựa chọn hàng đầu
 
-- Uy tín cao
+- Uy tín cao, minh bạch
 - Khả năng tương tác rộng
 - Hệ sinh thái lớn
-- Liên tục cải tiến (CCTP)
-
-## Rủi ro cần lưu ý
-
-- Rủi ro tập trung (Circle)
-- Rủi ro pháp lý
-- Rủi ro dự trữ
-- Rủi ro smart contract
-- Rủi ro vận hành
-
-## Hướng dẫn lựa chọn
-
-- Thanh toán: chọn fiat-backed (USDC)
-- DeFi: cân nhắc fiat-backed & crypto-backed
-- Phi tập trung: ưu tiên minh bạch cao
-- Luôn kiểm tra: dự trữ, uy tín, lịch sử
+- Liên tục cải tiến
 
 ---
-transition: slide-left
+transition: slide-down
 layout: thank-you
 ---
 
-# Cảm ơn bạn đã lắng nghe!
+# Cảm ơn mọi người đã lắng nghe!
 
 ## Tài nguyên tham khảo
 
