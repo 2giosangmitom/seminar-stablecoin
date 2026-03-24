@@ -262,15 +262,11 @@ transition: slide-down
 - Liên tục cải tiến
 
 ---
+theme: seriph
 transition: slide-down
-layout: thank-you
+background: https://cover.sli.dev
+hideInToc: true
+layout: cover
 ---
 
 # Cảm ơn mọi người đã lắng nghe!
-
-## Tài nguyên tham khảo
-
-- [https://www.usdc.com](https://www.usdc.com)
-- [https://www.circle.com/transparency](https://www.circle.com/transparency)
-- [https://www.usdc.com/learn](https://www.usdc.com/learn)
-- [https://www.circle.com/developer](https://www.circle.com/developer)
