@@ -96,7 +96,7 @@ transition: slide-down
 layout: default
 ---
 
-# USDC - Stablecoin được tin cậy nhất thế giới
+# USDC
 
 ## Tổng quan
 
@@ -241,15 +241,6 @@ hideInToc: true
 - Tip cho creator
 - Giao dịch trong game
 - Pay-per-use services
-
----
-transition: slide-down
----
-
-# Tổng kết
-
-- Kết nối tài chính truyền thống và blockchain
-- Kết hợp ổn định + hiệu quả
 
 ---
 theme: seriph
