@@ -248,18 +248,8 @@ transition: slide-down
 
 # Tổng kết
 
-## Stablecoin là cầu nối
-
 - Kết nối tài chính truyền thống và blockchain
 - Kết hợp ổn định + hiệu quả
-- Mở rộng tiếp cận tài chính
-
-## USDC - Lựa chọn hàng đầu
-
-- Uy tín cao, minh bạch
-- Khả năng tương tác rộng
-- Hệ sinh thái lớn
-- Liên tục cải tiến
 
 ---
 theme: seriph
