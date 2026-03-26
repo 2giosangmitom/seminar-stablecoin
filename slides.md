@@ -33,7 +33,7 @@ Stablecoin kết hợp độ tin cậy của tiền truyền thống với hiệ
 
 - Giảm thiểu biến động giá bằng cách neo với tài sản ổn định
 - Giữ lại những lợi thế của blockchain như giao dịch nhanh, phí thấp và tính minh bạch
-- Hoạt động 24/7/365 mà không phụ thuộc vào giờ làm việc của hệ thống tài chính truyền thống
+- Hoạt động 24/7 mà không phụ thuộc vào giờ làm việc của hệ thống tài chính truyền thống
 
 ---
 hideInToc: true
@@ -57,7 +57,7 @@ transition: slide-down
 
 ## ERC-20 là gì?
 
-ERC-20 (Ethereum Request for Comments 20) là chuẩn token được Fabian Vogelsteller đề xuất vào tháng 11 năm 2015. Đây là một **Token Standard** triển khai API cho token trong Smart Contract trên mạng Ethereum.
+ERC-20 là tiêu chuẩn kỹ thuật phổ biến nhất để tạo và phát hành token trên blockchain Ethereum, ra mắt năm 2015. Tiêu chuẩn này định ra các quy tắc cụ thể mà một token phải tuân theo để hoạt động trên mạng Ethereum, bao gồm các chức năng cơ bản gồm chuyển giao token, truy vết giao dịch và tương tác với các hợp đồng thông minh.
 
 ERC-20 định nghĩa chuẩn cho **Fungible Token** — tức là mỗi token hoàn toàn giống nhau về loại và giá trị. Ví dụ: 1 USDC luôn bằng 1 USDC bất kể ai đang nắm giữ nó.
 
@@ -83,6 +83,8 @@ Một Smart Contract được gọi là ERC-20 khi triển khai đầy đủ cá
 - `totalSupply()` — Tổng lượng token đang lưu hành
 - `balanceOf(address)` — Số dư của một địa chỉ
 
+---
+
 **Hàm giao dịch:**
 
 - `transfer(to, value)` — Chuyển token trực tiếp
@@ -101,9 +103,9 @@ hideInToc: true
 
 ## Hạn chế đáng chú ý của ERC-20
 
-> **Vấn đề mất token khi gửi vào smart contract**
->
-> Khi token ERC-20 được gửi đến một smart contract không được thiết kế để xử lý token, những token đó có thể bị mất vĩnh viễn. Tính đến tháng 6/2024, ước tính hơn **$83 triệu USD** giá trị token đã bị mất theo cách này.
+**Vấn đề mất token khi gửi vào smart contract**
+
+Khi token ERC-20 được gửi đến một smart contract không được thiết kế để xử lý token, những token đó có thể bị mất vĩnh viễn. Tính đến tháng 6/2024, ước tính hơn **$83 triệu USD** giá trị token đã bị mất theo cách này.
 
 **Nguyên nhân:**
 
@@ -244,12 +246,14 @@ hideInToc: true
 
 **Bridged USDC Standard** là một đặc tả kỹ thuật và quy trình cho phép các team blockchain EVM triển khai bridged USDC với khả năng nâng cấp liền mạch lên native USDC trong tương lai.
 
-|                      | Native USDC                | Bridged USDC                     |
-| -------------------- | -------------------------- | -------------------------------- |
-| **Phát hành bởi**    | Circle (regulated fintech) | Bên thứ ba                       |
-| **Đảm bảo**          | Backed bởi USD, đổi 1:1    | Backed bởi USDC lock ở chain gốc |
-| **Tương thích CCTP** | ✅ Có                      | ❌ Không                         |
-| **Tính chính thức**  | Chính thức                 | Không chính thức                 |
+|                      | Native USDC             | Bridged USDC                     |
+| -------------------- | ----------------------- | -------------------------------- |
+| **Phát hành bởi**    | Circle                  | Bên thứ ba                       |
+| **Đảm bảo**          | Backed bởi USD, đổi 1:1 | Backed bởi USDC lock ở chain gốc |
+| **Tương thích CCTP** | ✅ Có                   | ❌ Không                         |
+| **Tính chính thức**  | Chính thức              | Không chính thức                 |
+
+---
 
 ## Đặc điểm của chuẩn
 
@@ -340,19 +344,6 @@ Nhận thanh toán USDC trên một chain và tự động chuyển sang chain k
 
 **Composable Crosschain Apps**
 Dùng CCTP hooks để kết hợp nhiều hành động: chuyển USDC xuyên chain và tự động deposit vào DeFi, mua NFT hoặc thực thi smart contract logic.
-
----
-hideInToc: true
----
-
-## So sánh CCTP và Gateway
-
-| Thuộc tính   | CCTP                                     | Gateway                                        |
-| ------------ | ---------------------------------------- | ---------------------------------------------- |
-| **Mục đích** | Chuyển USDC từ chain này sang chain khác | Duy trì số dư USDC thống nhất trên nhiều chain |
-| **Tốc độ**   | Fast: ~8-20s / Standard: 15-19 phút      | Tức thì (<500ms) sau khi thiết lập             |
-| **Mô hình**  | Point-to-point transfers                 | Unified crosschain balance                     |
-| **Custody**  | Non-custodial                            | Non-custodial với tùy chọn rút 7 ngày          |
 
 ---
 transition: slide-down
