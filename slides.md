@@ -53,6 +53,70 @@ Mỗi cách tiếp cận có ưu — nhược điểm khác nhau về minh bạc
 transition: slide-down
 ---
 
+# Chuẩn token ERC-20
+
+## ERC-20 là gì?
+
+ERC-20 (Ethereum Request for Comments 20) là chuẩn token được Fabian Vogelsteller đề xuất vào tháng 11 năm 2015. Đây là một **Token Standard** triển khai API cho token trong Smart Contract trên mạng Ethereum.
+
+ERC-20 định nghĩa chuẩn cho **Fungible Token** — tức là mỗi token hoàn toàn giống nhau về loại và giá trị. Ví dụ: 1 USDC luôn bằng 1 USDC bất kể ai đang nắm giữ nó.
+
+## Tại sao ERC-20 quan trọng?
+
+- **Khả năng tương tác**: Mọi ứng dụng DeFi, ví, sàn giao dịch đều có thể tích hợp bất kỳ token ERC-20 nào mà không cần code riêng
+- **Nền tảng của stablecoin**: USDC, DAI, USDT... đều được xây dựng trên chuẩn ERC-20
+- **Hệ sinh thái mở**: Developer có thể xây dựng ứng dụng tương thích với hàng nghìn token khác nhau ngay lập tức
+
+---
+hideInToc: true
+---
+
+## Các hàm và sự kiện chính của ERC-20
+
+Một Smart Contract được gọi là ERC-20 khi triển khai đầy đủ các phương thức sau:
+
+**Hàm truy vấn thông tin:**
+
+- `name()` — Tên token (vd: "USD Coin")
+- `symbol()` — Ký hiệu (vd: "USDC")
+- `decimals()` — Số chữ số thập phân
+- `totalSupply()` — Tổng lượng token đang lưu hành
+- `balanceOf(address)` — Số dư của một địa chỉ
+
+**Hàm giao dịch:**
+
+- `transfer(to, value)` — Chuyển token trực tiếp
+- `approve(spender, value)` — Ủy quyền cho bên thứ ba chi tiêu
+- `transferFrom(from, to, value)` — Chuyển token thay mặt chủ sở hữu
+- `allowance(owner, spender)` — Kiểm tra hạn mức được ủy quyền
+
+**Sự kiện (Events):**
+
+- `Transfer` — Phát ra khi token được chuyển
+- `Approval` — Phát ra khi ủy quyền được thiết lập
+
+---
+hideInToc: true
+---
+
+## Hạn chế đáng chú ý của ERC-20
+
+> **Vấn đề mất token khi gửi vào smart contract**
+>
+> Khi token ERC-20 được gửi đến một smart contract không được thiết kế để xử lý token, những token đó có thể bị mất vĩnh viễn. Tính đến tháng 6/2024, ước tính hơn **$83 triệu USD** giá trị token đã bị mất theo cách này.
+
+**Nguyên nhân:**
+
+- Hàm `transfer()` chuyển token ngay cả khi contract nhận không có cơ chế xử lý
+- Không có cơ chế thông báo (callback) cho contract nhận
+- ERC-20 không có hàm bắt buộc cho contract nhận phải triển khai
+
+**Giải pháp thay thế:** ERC-223, ERC-1363 ra đời để giải quyết vấn đề này.
+
+---
+transition: slide-down
+---
+
 # Các loại stablecoin
 
 ## 1. Fiat-backed Stablecoins
@@ -116,9 +180,10 @@ hideInToc: true
 
 ## Lịch sử phát triển
 
-- **Tháng 9/2018**: Ra đời lần đầu trên blockchain Ethereum
+- **Tháng 9/2018**: Ra đời lần đầu trên blockchain Ethereum dưới dạng ERC-20 token
 - **2020–2024**: Mở rộng sang nhiều blockchain khác bao gồm Solana, Arbitrum, Base, v.v.
-- **2025–2026**: Tích hợp Cross-Chain Transfer Protocol (CCTP) để cải thiện khả năng tương tác giữa các chain
+- **Tháng 11/2023**: Circle công bố **Bridged USDC Standard** — chuẩn hóa quy trình triển khai USDC bridged trên các EVM blockchain mới
+- **2023–nay**: Tích hợp **Cross-Chain Transfer Protocol (CCTP)** để cho phép chuyển native USDC trực tiếp giữa các chain thông qua cơ chế burn-and-mint
 - **Hiện tại**: USDC là một trong những stablecoin được quản lý và sử dụng rộng rãi nhất trên thế giới với tổng vốn lưu hành trên 70 tỷ USD
 
 ---
@@ -154,6 +219,140 @@ Circle áp dụng một hệ thống minh bạch đa tầng:
 - Là quỹ thị trường tiền tệ được quản lý bởi SEC
 - Chứa các tài sản có rủi ro thấp và tính thanh khoản cao
 - Cho phép đổi 1:1 bất kỳ lúc nào
+
+---
+transition: slide-down
+---
+
+# Bridged USDC Standard
+
+## Vấn đề cần giải quyết
+
+Khi một blockchain mới ra đời, Circle không thể phát hành **native USDC** ngay lập tức do quy trình thẩm định kỹ thuật và pháp lý mất thời gian. Tuy nhiên, cộng đồng thường tự tạo **bridged USDC** (USDC được bridge từ Ethereum sang) để bootstrap thanh khoản sớm.
+
+Điều này dẫn đến vấn đề:
+
+- Nhiều phiên bản bridged USDC khác nhau → trải nghiệm phân mảnh
+- Khi Circle phát hành native USDC → cần migration tốn kém
+- Bridged USDC không tương thích với CCTP và các sản phẩm Circle
+
+---
+hideInToc: true
+---
+
+## Bridged USDC Standard là gì?
+
+**Bridged USDC Standard** là một đặc tả kỹ thuật và quy trình cho phép các team blockchain EVM triển khai bridged USDC với khả năng nâng cấp liền mạch lên native USDC trong tương lai.
+
+|                      | Native USDC                | Bridged USDC                     |
+| -------------------- | -------------------------- | -------------------------------- |
+| **Phát hành bởi**    | Circle (regulated fintech) | Bên thứ ba                       |
+| **Đảm bảo**          | Backed bởi USD, đổi 1:1    | Backed bởi USDC lock ở chain gốc |
+| **Tương thích CCTP** | ✅ Có                      | ❌ Không                         |
+| **Tính chính thức**  | Chính thức                 | Không chính thức                 |
+
+## Đặc điểm của chuẩn
+
+- **Permissionless & Equitable**: Bất kỳ team L1/L2 nào đều có thể triển khai
+- **Chuẩn hóa & Mở rộng được**: Quy trình chuyển giao ownership cho Circle được định nghĩa rõ ràng
+- **Bảo mật & Đã kiểm toán**: Dựa trên cùng smart contract đã được audit của USDC gốc
+
+---
+hideInToc: true
+---
+
+## Quy trình hoạt động
+
+```
+1. Team blockchain triển khai bridged USDC theo chuẩn
+        ↓
+2. Bridged USDC bootstrap thanh khoản ban đầu cho ecosystem
+        ↓
+3. Bridged USDC đạt đủ supply, holders và app integrations
+        ↓
+4. Circle và team blockchain đồng thuận chuyển giao ownership
+        ↓
+5. Circle nâng cấp bridged USDC → native USDC
+   (giữ nguyên contract address, số dư, tích hợp ứng dụng)
+```
+
+## Lợi ích cho các bên
+
+- **Blockchain teams**: Có USDC sớm với lộ trình nâng cấp lên native
+- **Developers**: Contract address không đổi, không cần sửa code
+- **Users**: Token tự động nâng cấp, không cần swap sang asset mới
+- **Toàn hệ sinh thái**: Tránh được quá trình migration phức tạp và tốn kém
+
+---
+transition: slide-down
+---
+
+# Cross-Chain Transfer Protocol (CCTP)
+
+## CCTP là gì?
+
+**Cross-Chain Transfer Protocol (CCTP)** là một giao thức on-chain permissionless cho phép chuyển **native USDC** trực tiếp giữa các blockchain thông qua cơ chế **burn-and-mint**.
+
+Thay vì dùng bridge truyền thống (lock token ở chain gốc, mint wrapped token ở chain đích), CCTP:
+
+- **Burn** USDC ở chain nguồn
+- **Mint** USDC native tương đương ở chain đích
+
+→ Không cần liquidity pool, không có wrapped token, không có rủi ro bridge hack.
+
+---
+hideInToc: true
+---
+
+## Cơ chế hoạt động
+
+```
+Chain A (nguồn)                    Chain B (đích)
+─────────────────                  ─────────────────
+User gọi burnUSDC()       →        Circle Attestation Service
+USDC bị burn                       xác nhận burn hợp lệ
+                                         ↓
+                           User gọi mintUSDC() với attestation
+                           USDC native được mint ở chain B
+```
+
+## Các tính năng nổi bật
+
+- **Native USDC transfers**: Chuyển native USDC, không phải wrapped token
+- **Fast Transfer**: Hoàn thành trong ~8–20 giây
+- **Standard Transfer**: Chi phí thấp hơn, mất 15–19 phút (Ethereum/L2s)
+- **Programmable Hooks**: Tự động trigger các hành động trên chain đích sau khi USDC đến (vd: deposit vào DeFi protocol)
+
+---
+hideInToc: true
+---
+
+## Các ứng dụng có thể xây dựng với CCTP
+
+**Crosschain Liquidity Management**
+Tái cân bằng USDC trên nhiều blockchain để đáp ứng nhu cầu thanh khoản hoặc tận dụng cơ hội thị trường với độ trễ tối thiểu.
+
+**Crosschain Swaps**
+Cho phép người dùng swap token trên một blockchain lấy token trên blockchain khác, routing qua USDC như một điểm trung chuyển.
+
+**Crosschain Payments**
+Nhận thanh toán USDC trên một chain và tự động chuyển sang chain khác nơi doanh nghiệp vận hành.
+
+**Composable Crosschain Apps**
+Dùng CCTP hooks để kết hợp nhiều hành động: chuyển USDC xuyên chain và tự động deposit vào DeFi, mua NFT hoặc thực thi smart contract logic.
+
+---
+hideInToc: true
+---
+
+## So sánh CCTP và Gateway
+
+| Thuộc tính   | CCTP                                     | Gateway                                        |
+| ------------ | ---------------------------------------- | ---------------------------------------------- |
+| **Mục đích** | Chuyển USDC từ chain này sang chain khác | Duy trì số dư USDC thống nhất trên nhiều chain |
+| **Tốc độ**   | Fast: ~8-20s / Standard: 15-19 phút      | Tức thì (<500ms) sau khi thiết lập             |
+| **Mô hình**  | Point-to-point transfers                 | Unified crosschain balance                     |
+| **Custody**  | Non-custodial                            | Non-custodial với tùy chọn rút 7 ngày          |
 
 ---
 transition: slide-down
