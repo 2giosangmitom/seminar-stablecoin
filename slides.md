@@ -270,18 +270,7 @@ hideInToc: true
 
 ## Quy trình hoạt động
 
-```
-1. Team blockchain triển khai bridged USDC theo chuẩn
-        ↓
-2. Bridged USDC bootstrap thanh khoản ban đầu cho ecosystem
-        ↓
-3. Bridged USDC đạt đủ supply, holders và app integrations
-        ↓
-4. Circle và team blockchain đồng thuận chuyển giao ownership
-        ↓
-5. Circle nâng cấp bridged USDC → native USDC
-   (giữ nguyên contract address, số dư, tích hợp ứng dụng)
-```
+![quy-trinh](/quy-trinh-bridge-to-native.svg)
 
 ## Lợi ích cho các bên
 
@@ -305,7 +294,7 @@ Thay vì dùng bridge truyền thống (lock token ở chain gốc, mint wrapped
 - **Burn** USDC ở chain nguồn
 - **Mint** USDC native tương đương ở chain đích
 
-→ Không cần liquidity pool, không có wrapped token, không có rủi ro bridge hack.
+<lucide-arrow-right /> Không cần liquidity pool, không có wrapped token, không có rủi ro bridge hack.
 
 ---
 hideInToc: true
@@ -313,21 +302,18 @@ hideInToc: true
 
 ## Cơ chế hoạt động
 
-```
-Chain A (nguồn)                    Chain B (đích)
-─────────────────                  ─────────────────
-User gọi burnUSDC()       →        Circle Attestation Service
-USDC bị burn                       xác nhận burn hợp lệ
-                                         ↓
-                           User gọi mintUSDC() với attestation
-                           USDC native được mint ở chain B
-```
+![cctp flow](/cctp-flow.svg)
+
+---
+hideInToc: true
+transition: slide-down
+---
 
 ## Các tính năng nổi bật
 
 - **Native USDC transfers**: Chuyển native USDC, không phải wrapped token
 - **Fast Transfer**: Hoàn thành trong ~8–20 giây
-- **Standard Transfer**: Chi phí thấp hơn, mất 15–19 phút (Ethereum/L2s)
+- **Standard Transfer**: Chi phí thấp hơn, mất 15–19 phút
 - **Programmable Hooks**: Tự động trigger các hành động trên chain đích sau khi USDC đến (vd: deposit vào DeFi protocol)
 
 ---
