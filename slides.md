@@ -258,17 +258,6 @@ hideInToc: true
 
 ---
 hideInToc: true
-transition: fade
----
-
-## Đặc điểm của chuẩn
-
-- **Permissionless & Equitable**: Bất kỳ team L1/L2 nào đều có thể triển khai
-- **Chuẩn hóa & Mở rộng được**: Quy trình chuyển giao ownership cho Circle được định nghĩa rõ ràng
-- **Bảo mật & Đã kiểm toán**: Dựa trên cùng smart contract đã được audit của USDC gốc
-
----
-hideInToc: true
 ---
 
 ## Quy trình hoạt động
